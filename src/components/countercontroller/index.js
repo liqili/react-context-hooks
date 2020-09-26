@@ -1,12 +1,18 @@
 import React from "react";
 import {useCounterStore} from "../../store";
+import {increase, decrease} from "../../actions";
 
 export default function CounterController() {
-    const [count, setCount] = useCounterStore();
+    const [, dispatch] = useCounterStore();
 
     return (
-        <button onClick={() => setCount(count + 1)}>
-            Click me
-        </button>
+        <div>
+            <button onClick={() => dispatch(increase(1))}>
+                Increase me
+            </button>
+            <button onClick={() => dispatch(decrease(1))}>
+                Decrease me
+            </button>
+        </div>
     );
 }
